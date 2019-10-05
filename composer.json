@@ -1,0 +1,18 @@
+{
+  "name": "yura/product-review",
+  "description": "Project about goods and review",
+  "type": "project",
+  "authors": [
+    {
+      "name": "yura",
+      "email": "yuralucky83@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "ProductReview\\": "src/"
+    }
+
+  }
+}
