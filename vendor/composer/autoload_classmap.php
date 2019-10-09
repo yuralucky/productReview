@@ -6,10 +6,18 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ProductReview\\Product\\Connection' => $baseDir . '/src/Product/Connection.php',
-    'ProductReview\\Product\\MySqlStorage' => $baseDir . '/src/Product/MySqlStorage.php',
-    'ProductReview\\Product\\Product' => $baseDir . '/src/Product/Product.php',
-    'ProductReview\\Product\\StorageInterface' => $baseDir . '/src/Product/StorageInterface.php',
-    'ProductReview\\Review\\Review' => $baseDir . '/src/Review/Review.php',
-    'ProductReview\\Sanitize' => $baseDir . '/src/Sanitize.php',
+    'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
+    'ProductReview\\Controllers\\Controller' => $baseDir . '/src/Core/Controller.php',
+    'ProductReview\\Controllers\\ProductController' => $baseDir . '/src/Controllers/ProductController.php',
+    'ProductReview\\Core\\App' => $baseDir . '/src/Core/App.php',
+    'ProductReview\\Core\\Model' => $baseDir . '/src/Core/Model.php',
+    'ProductReview\\Dispatcher' => $baseDir . '/src/Dispatcher.php',
+    'ProductReview\\Models\\ProductModel' => $baseDir . '/src/Models/ProductModel.php',
+    'ProductReview\\Models\\ReviewModel' => $baseDir . '/src/Models/ReviewModel.php',
+    'ProductReview\\ParseUrl' => $baseDir . '/src/ParseUrl.php',
+    'ProductReview\\Route' => $baseDir . '/src/Route.php',
+    'ProductReview\\Router' => $baseDir . '/src/Router.php',
+    'ProductReview\\Views\\View' => $baseDir . '/src/Views/View.php',
+    'ProductReview\\config\\DbConnect' => $baseDir . '/src/config/DbConnect.php',
+    'ProductReview\\config\\Env' => $baseDir . '/src/config/Env.php',
 );

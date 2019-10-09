@@ -1,23 +1,22 @@
+<!--<div class="container">-->
+<!--    <div class="row ">-->
+        <div class="col-md-8 offset-2">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <form method="post"  action="" enctype="multipart/form-data" >
+            <form method="post" action="../../index.php" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="Name">Product Name</label>
                     <input type="text" class="form-control" name="product_name" placeholder="Enter product name">
                 </div>
+<!--                <div class="form-group">-->
+<!--                    <label for="image">Image</label>-->
+<!--                    <input type="file" class="form-check" name="image" placeholder="file">-->
+<!--                </div>-->
+<!---->
+<!--                Or enter URL IMAGE-->
+
                 <div class="form-group">
                     <label for="image">Image</label>
-                    <input type="file" class="form-input" name="image" placeholder="file">
+                    <input type="text" class="form-control" name="image" placeholder="URL IMAGE">
                 </div>
                 <div class="form-group">
                     <label for="Price">Price</label>
@@ -31,11 +30,9 @@
                     <label for="Author">Author</label>
                     <input type="text" class="form-control " name="author" placeholder="Enter your name">
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
+
+                <button type="submit" class="btn btn-primary btn-block">Save</button>
             </form>
         </div>
-    </div>
-</div>
-
-</body>
-</html>;
+<!--    </div>-->
+<!--</div>-->

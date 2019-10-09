@@ -6,10 +6,6 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitc0676501151093714f39585bde0413f6
 {
-    public static $files = array (
-        '5d25ca0acb6055e6baf46e631711fd5a' => __DIR__ . '/../..' . '/src/config/env.php',
-    );
-
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
@@ -25,12 +21,20 @@ class ComposerStaticInitc0676501151093714f39585bde0413f6
     );
 
     public static $classMap = array (
-        'ProductReview\\Product\\Connection' => __DIR__ . '/../..' . '/src/Product/Connection.php',
-        'ProductReview\\Product\\MySqlStorage' => __DIR__ . '/../..' . '/src/Product/MySqlStorage.php',
-        'ProductReview\\Product\\Product' => __DIR__ . '/../..' . '/src/Product/Product.php',
-        'ProductReview\\Product\\StorageInterface' => __DIR__ . '/../..' . '/src/Product/StorageInterface.php',
-        'ProductReview\\Review\\Review' => __DIR__ . '/../..' . '/src/Review/Review.php',
-        'ProductReview\\Sanitize' => __DIR__ . '/../..' . '/src/Sanitize.php',
+        'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
+        'ProductReview\\Controllers\\Controller' => __DIR__ . '/../..' . '/src/Core/Controller.php',
+        'ProductReview\\Controllers\\ProductController' => __DIR__ . '/../..' . '/src/Controllers/ProductController.php',
+        'ProductReview\\Core\\App' => __DIR__ . '/../..' . '/src/Core/App.php',
+        'ProductReview\\Core\\Model' => __DIR__ . '/../..' . '/src/Core/Model.php',
+        'ProductReview\\Dispatcher' => __DIR__ . '/../..' . '/src/Dispatcher.php',
+        'ProductReview\\Models\\ProductModel' => __DIR__ . '/../..' . '/src/Models/ProductModel.php',
+        'ProductReview\\Models\\ReviewModel' => __DIR__ . '/../..' . '/src/Models/ReviewModel.php',
+        'ProductReview\\ParseUrl' => __DIR__ . '/../..' . '/src/ParseUrl.php',
+        'ProductReview\\Route' => __DIR__ . '/../..' . '/src/Route.php',
+        'ProductReview\\Router' => __DIR__ . '/../..' . '/src/Router.php',
+        'ProductReview\\Views\\View' => __DIR__ . '/../..' . '/src/Views/View.php',
+        'ProductReview\\config\\DbConnect' => __DIR__ . '/../..' . '/src/config/DbConnect.php',
+        'ProductReview\\config\\Env' => __DIR__ . '/../..' . '/src/config/Env.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

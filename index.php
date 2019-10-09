@@ -1,25 +1,29 @@
 <?php
-//$url = $_SERVER['REQUEST_URI'];
-//$path = parse_url($url, PHP_URL_PATH);
-//
-//if ($path == '/') {
-//    require __DIR__ . '/about.php';
-//    exit;
-//} elseif ($path == '/form') {
-//    header("Content-Type: text/plain; charset=utf-8");
-//    require __DIR__ . '/form.php';
-//    exit;
-//}
-//elseif ($path == '/404') {
-//    header("Content-Type: text/plain; charset=utf-8");
-//    require __DIR__ . '/404.php';
-//    exit;
-//}
-//elseif ($path == '/action') {
-//    header("Content-Type: text/plain; charset=utf-8");
-//    require __DIR__ . '/src/Review/action.php';
-//    exit;
-//}
-//
-//
-//return false;
+
+use ProductReview\Core\App;
+use ProductReview\ParseUrl;
+
+require_once 'vendor/autoload.php';
+//spl_autoload_register(function ($class) {
+//    echo  $class ;
+//});
+//$obj = new App();
+//$obj->run();
+
+//$obj=new \ProductReview\Models\ReviewModel();
+//print_r($obj->test());
+
+$obj = new ParseUrl();
+$obj->run();
+
+//$router = new AltoRouter();
+//$router->match('form','get');
+//$router->match('test1','GET');
+//$router->addRoutes('test');
+//$router->map( 'GET', '/test1', 'ProductController#test1');
+//$obj = new \ProductReview\Models\ReviewModel();
+//$obj->insert();
+//require 'form_product.php';
+
+//$obj=new \ProductReview\Controllers\ProductController();
+//$obj->form();
