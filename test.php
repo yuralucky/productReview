@@ -1,12 +1,5 @@
 <?php
-$url = 'http://localhost:8000/product/test1';
-
-
-$parse = parse_url($url);
-$parse = $parse['path'];
-$parse=explode('/',$parse);
-$controller = $parse[1];
-$action = $parse[2];
-print $controller;
-print '<br>';
-print $action;
+//$url = file_get_contents('https://www.google.com/imgres?imgurl=https%3A%2F%2Fbabylessons.com.ua%2Fwp-content%2Fuploads%2F2012%2F10%2F91.thumbnail.jpg&imgrefurl=https%3A%2F%2Fbabylessons.com.ua%2Frisuem-osen-s-malyshom-primer-raboty%2Fdefault.htm&docid=irNQmB9vfra68M&tbnid=1vh24i33yLtEVM%3A&vet=10ahUKEwi3lIjnkpHlAhWqwqYKHdY0CyEQMwg8KAQwBA..i&w=128&h=128&bih=637&biw=1366&q=%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8%20%D0%BE%D1%81%D1%96%D0%BD%D1%8C&ved=0ahUKEwi3lIjnkpHlAhWqwqYKHdY0CyEQMwg8KAQwBA&iact=mrc&uact=8');
+//$url=file_get_contents('https://www.google.com/imgres?imgurl=https%3A%2F%2Fforum.in-ku.com%2Fcustomavatars%2Favatar126061_35.gif&imgrefurl=https%3A%2F%2Fforum.in-ku.com%2Fshowthread.php%3Ft%3D136774&docid=V51xCs_Inhx2QM&tbnid=9wYC7DDmItbm2M%3A&vet=10ahUKEwiAlMz6lJHlAhUOFpoKHa4gCzQQMwhAKAEwAQ..i&w=128&h=128&bih=588&biw=1366&q=%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8%20%D0%BE%D1%81%D1%96%D0%BD%D1%8C&ved=0ahUKEwiAlMz6lJHlAhUOFpoKHa4gCzQQMwhAKAEwAQ&iact=mrc&uact=8');
+//file_put_contents('src/image/img1.jpg', $url);
+print  __DIR__;

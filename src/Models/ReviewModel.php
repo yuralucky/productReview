@@ -24,7 +24,7 @@ class ReviewModel extends Model
 
     public function createTable()
     {
-        $sql = 'CREATE TABLE  toto(
+        $sql = 'IF NOT EXISTS CREATE TABLE  toto(
         id INT(2) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(30) NOT NULL,
         rating INT(2) 
@@ -62,7 +62,8 @@ class ReviewModel extends Model
     public
     function showAll()
     {
-        $stm = $this->connection->query('SELECT * FROM ' . $this->table);
+        $sql = 'select products.id,products.image,avg(reviews.rating) FROM products JOIN reviews on products.id=reviews.product_id group by products.id,products.image';
+        $stm = $this->connection->query($sql);
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 

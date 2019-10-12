@@ -23,12 +23,5 @@ class Controller
         return $cleanArray;
     }
 
-    public function render($content, $templateName = 'template.php', $params = [])
-    {
-        ob_start();
-        $params = $_GET;
-        include '../../Views/template.php';
-        $content = ob_get_clean();
-        $content = $content . '.php';
-    }
+
 }

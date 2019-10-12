@@ -20,25 +20,25 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->model->showAll();
-        return $this->view->render('table', $products);
+        $this->view->render('table', $products);
     }
 
-    public function create($request)
+    public function create()
     {
-        return $this->view->render('form');
+        $this->view->render('form');
     }
 
     public function store($data)
     {
-        $this->model->insert($this->sanitizeData($data)
-        );
+        var_dump($_FILES);
+        $this->model->insert($data);
+//        $this->view->render('404');
+
     }
 
-    public function show($id)
+    public function show()
     {
-        return $this->view->render('show');
-//        return $this->model->show($id);
-
+        $this->view->render('show');
     }
 
     public function test()
@@ -54,6 +54,11 @@ class ProductController extends Controller
     public function test1($name)
     {
         echo $name;
+    }
+
+    public function notFound()
+    {
+        $this->view->render('404');
     }
 }
 
