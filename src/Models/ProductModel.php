@@ -12,36 +12,38 @@ class ProductModel extends Model
     protected $connection = null;
     protected $table = 'products';
     protected $tableRel = 'reviews';
+    protected $sql = 'SELECT products.id, products.name,products.image,products.created_at,products.author , COUNT(commentary) as amount FROM products 
+        LEFT JOIN  reviews ON 
+          products.id=reviews.product_id
+           GROUP by products.id,products.image ';
 
     public function __construct()
     {
         $this->connection = DbConnect::getInstance();
     }
 
-    public function show($id)
-    {
-        $stm = $this->connection->query('SELECT * FROM ' . $this->table . ' WHERE id=' . $id);
-        return $stm->fetch(PDO::FETCH_ASSOC);
-    }
 
-    public function insert($data)
+    /**
+     * Store new prodduct
+     */
+    public function insert()
     {
         $data = [
-            'name' => $data['name'],
-            'image' => time() . $_FILES['image']['name'],
-            'author' => $data['author'],
-            'price' => $data['price'],
-            'created_at' => $data['created_at']
+            'name' => $this->filterDataString($_POST['name']),
+            'image' => $_POST['image'],
+            'author' => $this->filterDataString($_POST['author']),
+            'price' => $this->filterDataInt($_POST['price']),
         ];
-        $image = $_FILES["image"]["tmp_name"];
-
-        $dir = '/home/yura/PhpstormProjects/ProductReview/src/image/';
-        $d= move_uploaded_file($image, $dir);
-        var_dump($_FILES['image']['error']);
-
-        var_dump($d);
+//        $uploadfile = 'image/' . $data['image'];
+//        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+//            echo 'file upload';
+//        }
+//
+//        $url = $_POST['image'];
+//        $image = $data['image'];
+//        file_put_contents('../image/' . $image, file_get_contents($url));
         try {
-            $sql = 'INSERT INTO ' . $this->table . '(name,image,created_at,author,price)  VALUES (:name,:image,:created_at,:author,:price)';
+            $sql = 'INSERT INTO ' . $this->table . '(name,image,author,price)  VALUES (:name,:image,:author,:price)';
             $stm = $this->connection->prepare($sql);
             $stm->execute($data);
         } catch (\Exception $exception) {
@@ -50,32 +52,65 @@ class ProductModel extends Model
 
     }
 
+    /**
+     * Select all records from databases table
+     *
+     * @return mixed
+     */
     public function showAll()
     {
-        $sql = 'SELECT products.name,products.image,products.created_at,products.author , COUNT(commentary) as amount FROM products 
-        JOIN  reviews  WHERE products.id=reviews.product_id GROUP by products.id,products.image ORDER BY products.created_at DESC  limit 5';
-        $stm = $this->connection->query($sql);
-//        $stm->execute($sql);
+        $stm = $this->connection->query($this->sql);
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Select all records from databases table sorted
+     *
+     * @param $sort
+     * @return mixed
+     */
     public function showSortBy($sort)
     {
-        $stm = $this->connection->query('SELECT * FROM ' . $this->table . ' ORDER BY ' . $sort);
+        $stm = $this->connection->query($this->sql . ' ORDER BY ' . $this->filterDataString($sort));
+//        $stm->execute(['sort' => $sort]);
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Select all records from databases table sorted desc
+     *
+     * @param $sort
+     * @return mixed
+     */
     public function showSortByDesc($sort)
     {
-        $stm = $this->connection->query('SELECT * FROM ' . $this->table . ' ORDER BY ' . $sort . ' DESC');
+        $stm = $this->connection->query($this->sql . ' ORDER BY ' . $this->filterDataString($sort) . ' DESC');
+//        $stm->execute(['sort' => $sort]);
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
-    public function test()
+    /**
+     *Create new table
+     */
+    public function createTable()
     {
-        return 'test';
+        $sql = "CREATE TABLE products (
+                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(30) NOT NULL,
+                price INT(6),
+                image VARCHAR(30) NOT NULL,
+                author VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                )";
+        try {
+            $this->connection->query($sql);
+        } catch (\Exception $exception) {
+            print $exception->getMessage();
+        }
+
+
     }
+
 
 }
 

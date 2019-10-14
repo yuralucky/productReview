@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ProductReview\\' => array($baseDir . '/src'),
+    'Buki\\' => array($vendorDir . '/izniburak/router/src'),
 );

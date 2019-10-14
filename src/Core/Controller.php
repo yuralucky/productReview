@@ -11,17 +11,18 @@ namespace ProductReview\Controllers;
 
 class Controller
 {
-    protected function sanitizeData(array $arr)
+
+
+    public function render($content, $products=[],$commentary=[])
     {
-        $cleanArray = array();
-        foreach ($arr as $data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlentities($data);
-            $cleanArray[] = $data;
-        }
-        return $cleanArray;
+
+        extract($products);
+        extract($commentary);
+        $content=$content.'.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/src/Views/template.php';
     }
+
+
 
 
 }

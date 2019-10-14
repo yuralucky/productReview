@@ -1,43 +1,45 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yura
- * Date: 09.10.19
- * Time: 19:03
- */
 
 namespace ProductReview\Controllers;
 
 
 use ProductReview\Models\ReviewModel;
-use ProductReview\Views\View;
 
 class ReviewController extends Controller
 {
-    private $model = 'reviews';
-    private $view;
+    private $model;
 
     public function __construct()
     {
         $this->model = new ReviewModel();
-        $this->view = new View();
     }
 
-    public function index()
+
+    /**
+     * Store database new review
+     */
+    public function store()
     {
-        $products = $this->model->showAll();
-//        return $products;
-         $this->view->render('review',$products);
+        $this->model->insert();
+        $this->show($_POST['product_id']);
     }
 
-    public function store($data)
-    {
-        $this->model->insert($this->sanitizeData($data));
 
-    }
-
+    /**
+     * Show single product with rating and commentary
+     *
+     * @param $id
+     */
     public function show($id)
     {
-        return $this->view->render('show');
+
+        $products = $this->model->showAvg($id);
+        $commentary = $this->model->showAllCommenary($id);
+        $this->render('review', $products, $commentary);
+    }
+
+    public function test()
+    {
+        $this->model->createTable();
     }
 }

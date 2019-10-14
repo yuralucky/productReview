@@ -3,62 +3,69 @@
 namespace ProductReview\Controllers;
 
 use ProductReview\Models\ProductModel;
-use ProductReview\Views\View;
 
 class ProductController extends Controller
 {
-    private $model = 'products';
-    private $view;
-    private $data;
+    private $model;
 
     public function __construct()
     {
         $this->model = new ProductModel();
-        $this->view = new View();
     }
 
+    /**
+     * show main page with data from database
+     */
     public function index()
     {
         $products = $this->model->showAll();
-        $this->view->render('table', $products);
+        $this->render('table', $products);
     }
 
+    /**
+     * show create form new product
+     */
     public function create()
     {
-        $this->view->render('form');
+        $this->render('form');
     }
 
-    public function store($data)
+    /**
+     * store new product in database
+     */
+    public function store()
     {
-        var_dump($_FILES);
-        $this->model->insert($data);
-//        $this->view->render('404');
+        $this->model->insert();
+        $products = $this->model->showAll();
+        $this->render('table', $products);
 
     }
 
-    public function show()
+    /**
+     * Show sort table asc
+     *
+     * @param $name
+     */
+    public function sort($name)
     {
-        $this->view->render('show');
+        $products = $this->model->showSortBy($name);
+        $this->render('table', $products);
+    }
+
+    /**
+     *  Show sort table desc
+     *
+     * @param $name
+     */
+    public function sortDesc($name)
+    {
+        $products = $this->model->showSortByDesc($name);
+        $this->render('table', $products);
     }
 
     public function test()
     {
-        $this->view->render('table');
-    }
-
-    public function form()
-    {
-        $this->view->render('form');
-    }
-
-    public function test1($name)
-    {
-        echo $name;
-    }
-
-    public function notFound()
-    {
-        $this->view->render('404');
+        $this->model->createTable();
     }
 }
 

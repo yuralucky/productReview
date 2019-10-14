@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13a887a862b21a9b5dffa95ca312d939",
+    "content-hash": "484e3e12537fb2ffa10c9a0ea0dec5fc",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -60,6 +60,54 @@
                 "routing"
             ],
             "time": "2015-11-30T00:47:43+00:00"
+        },
+        {
+            "name": "izniburak/router",
+            "version": "v1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/izniburak/php-router.git",
+                "reference": "dab39f1d48c241c9c752a7eb4b6a3d9a74fcc510"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/izniburak/php-router/zipball/dab39f1d48c241c9c752a7eb4b6a3d9a74fcc510",
+                "reference": "dab39f1d48c241c9c752a7eb4b6a3d9a74fcc510",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^5.3",
+                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Buki\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "İzni Burak Demirtaş",
+                    "email": "info@burakdemirtas.org",
+                    "homepage": "http://burakdemirtas.org"
+                }
+            ],
+            "description": "simple router class for php",
+            "homepage": "https://github.com/izniburak/php-router",
+            "keywords": [
+                "Simple",
+                "php",
+                "route",
+                "router"
+            ],
+            "time": "2019-08-04T21:28:37+00:00"
         }
     ],
     "packages-dev": [],

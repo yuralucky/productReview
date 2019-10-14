@@ -1,12 +1,22 @@
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
-        <th><a href=""><i class="fas fa-angle-down"></i></a><a href=""><span class="fas fa-angle-up"></span></a> Name
+        <th><a href="/sort/<?php echo array_keys($products[1])[1] ?>"><i class="fas fa-angle-down"></i></a><a
+                    href="/sortDesc/<?php echo array_keys($products[1])[1] ?>"><span class="fas fa-angle-up"></span></a>
+            Name
         </th>
-        <th> Image</th>
-        <th><a href=""><i class="fas fa-angle-down"></i></a><a href=""><i class="fas fa-angle-up"></i></a> Created</th>
-        <th><a href=""><i class="fas fa-angle-down"></i></a> <a href=""><i class="fas fa-angle-up"></i></a>Owner</th>
-        <th><a href=""><i class="fas fa-angle-down"></i></a><a href=""><i class="fas fa-angle-up"></i></a> Amount_rev
+        <th> Image
+        </th>
+        <th><a href="/sort/<?php echo array_keys($products[1])[3] ?>"><i class="fas fa-angle-down"></i></a><a
+                    href="/sortDesc/<?php echo array_keys($products[1])[3] ?>"><i
+                        class="fas fa-angle-up"></i></a> <?php echo $products['name'] ?>Created_at
+        </th>
+        <th><a href="/sort/<?php echo array_keys($products[1])[4] ?>"><i class="fas fa-angle-down"></i></a> <a
+                    href="/sortDesc/<?php echo array_keys($products[1])[4] ?>"><i class="fas fa-angle-up"></i></a>Owner
+        </th>
+        <th><a href="/sort/<?php echo array_keys($products[1])[5] ?>"><i class="fas fa-angle-down"></i></a><a
+                    href="/sortDesc/<?php echo array_keys($products[1])[5] ?>"><i class="fas fa-angle-up"></i></a>
+            Amount_rev
         </th>
     </tr>
     </thead>
@@ -15,8 +25,8 @@
         <?php foreach ($products
 
         as $product): ?>
-        <td><a href="/reviews "><?php echo $product['name'] ?></a></td>
-        <td><img src="<?php $product['image'] ?>" alt=""></td>
+        <td><a href="/show/<?php print $product['id'] ?> "><?php echo $product['name']; ?></a></td>
+        <td><img src="<?php echo $_SERVER['DOCUMENT_ROOT'].'/'.$product['image'] ?>" alt="no image"></td>
         <td><?php echo $product['created_at'] ?></td>
         <td><?php echo $product['author'] ?></td>
         <td><?php echo $product['amount'] ?></td>

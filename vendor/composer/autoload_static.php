@@ -11,6 +11,10 @@ class ComposerStaticInitc0676501151093714f39585bde0413f6
         array (
             'ProductReview\\' => 14,
         ),
+        'B' => 
+        array (
+            'Buki\\' => 5,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -18,10 +22,18 @@ class ComposerStaticInitc0676501151093714f39585bde0413f6
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'Buki\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/izniburak/router/src',
+        ),
     );
 
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
+        'Buki\\Router' => __DIR__ . '/..' . '/izniburak/router/src/Router.php',
+        'Buki\\Router\\RouterCommand' => __DIR__ . '/..' . '/izniburak/router/src/Router/RouterCommand.php',
+        'Buki\\Router\\RouterException' => __DIR__ . '/..' . '/izniburak/router/src/Router/RouterException.php',
+        'Buki\\Router\\RouterRequest' => __DIR__ . '/..' . '/izniburak/router/src/Router/RouterRequest.php',
         'ProductReview\\Controllers\\Controller' => __DIR__ . '/../..' . '/src/Core/Controller.php',
         'ProductReview\\Controllers\\ProductController' => __DIR__ . '/../..' . '/src/Controllers/ProductController.php',
         'ProductReview\\Controllers\\ReviewController' => __DIR__ . '/../..' . '/src/Controllers/ReviewController.php',

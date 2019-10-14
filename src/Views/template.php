@@ -19,8 +19,7 @@
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
-            <h4>Content</h4>
-            <span class="fas fa-cloud"></span>
+
             <?php
             include $content; ?>
 

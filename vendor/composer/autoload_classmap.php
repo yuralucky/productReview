@@ -7,6 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
+    'Buki\\Router' => $vendorDir . '/izniburak/router/src/Router.php',
+    'Buki\\Router\\RouterCommand' => $vendorDir . '/izniburak/router/src/Router/RouterCommand.php',
+    'Buki\\Router\\RouterException' => $vendorDir . '/izniburak/router/src/Router/RouterException.php',
+    'Buki\\Router\\RouterRequest' => $vendorDir . '/izniburak/router/src/Router/RouterRequest.php',
     'ProductReview\\Controllers\\Controller' => $baseDir . '/src/Core/Controller.php',
     'ProductReview\\Controllers\\ProductController' => $baseDir . '/src/Controllers/ProductController.php',
     'ProductReview\\Controllers\\ReviewController' => $baseDir . '/src/Controllers/ReviewController.php',

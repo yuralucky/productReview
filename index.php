@@ -1,24 +1,29 @@
 <?php
 
-use ProductReview\ParseUrl;
+namespace ProductReview;
 
 require_once 'vendor/autoload.php';
 
-//$obj=new \ProductReview\Models\ReviewModel();
-//print_r($obj->test());
+$router = new \Buki\Router([
+    'paths' => [
+        'controllers' => 'src/Controllers'
+    ],
+    'namespaces' => [
+        'controllers' => 'ProductReview\Controllers'
+    ]
+]);
 
-$obj = new ParseUrl();
-$obj->run1();
-//$obj = new AltoRouter();
-//$obj->setBasePath('/');
-//$obj->map('GET', '/getAll', 'ProductController#form');
-//$match = $obj->match();
-//var_dump($obj);
 
-//$obj=new \ProductReview\Controllers\ProductController();
-//$obj->form();
 
-//$obj=new \ProductReview\Controllers\ReviewController();
-//print_r($obj->index());
-//$obj=new \ProductReview\Models\ProductModel();
-//print_r($obj->showSortBy('author'));
+$router->add('get', '/', 'ProductController@index');
+$router->add('get', '/form', 'ProductController@create');
+$router->add('post', '/store', 'ProductController@store');
+$router->add('get', '/sort/:any', 'ProductController@sort');
+$router->add('get', '/sortDesc/:any', 'ProductController@sortDesc');
+
+$router->add('post', '/storeReview', 'ReviewController@store');
+$router->add('get', '/show/:id', 'ReviewController@show');
+$router->add('get','/test','ProductController@test');
+$router->add('get','/test1','ReviewController@test');
+
+$router->run();
