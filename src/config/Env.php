@@ -11,20 +11,64 @@ namespace ProductReview\config;
 
 class Env
 {
+    private $DB_CONNECTION = 'mysql';
 
-    public static function mysql()
+    private $DB_HOST = 'localhost';
+
+    private $DB_PORT = '3306';
+
+    private $DB_DATABASE = 'review';
+    private $DB_USERNAME = 'root';
+    private $DB_PASSWORD = 'root';
+
+    /**
+     * @return string
+     */
+    public function getDBCONNECTION(): string
     {
-        return $db = [
-            'DB_CONNECTION' => 'mysql',
-            'DB_HOST' => 'localhost',
-            'DB_PORT' => '3306',
-            'DB_DATABASE' => 'review',
-            'DB_USERNAME' => 'root',
-            'DB_PASSWORD' => ''
-        ];
+        return $this->DB_CONNECTION;
     }
+
+    /**
+     * @return string
+     */
+    public function getDBHOST(): string
+    {
+        return $this->DB_HOST;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDBPORT(): string
+    {
+        return $this->DB_PORT;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDBDATABASE(): string
+    {
+        return $this->DB_DATABASE;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDBUSERNAME(): string
+    {
+        return $this->DB_USERNAME;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDBPASSWORD(): string
+    {
+        return $this->DB_PASSWORD;
+    }
+
+
 }
 
-$obj=Env::mysql();
-print_r( $obj['DB_CONNECTION'])
-;

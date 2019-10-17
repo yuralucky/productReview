@@ -19,7 +19,7 @@ class DbConnect
 
     public function __construct()
     {
-        $this->db = Env::mysql();
+        $this->db = new Env;
     }
 
     /**

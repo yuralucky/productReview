@@ -30,18 +30,17 @@ class ProductModel extends Model
     {
         $data = [
             'name' => $this->filterDataString($_POST['name']),
-            'image' => $_POST['image'],
+            'image' => time() . $_FILES['image']['name'],
             'author' => $this->filterDataString($_POST['author']),
             'price' => $this->filterDataInt($_POST['price']),
         ];
-//        $uploadfile = 'image/' . $data['image'];
-//        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
-//            echo 'file upload';
-//        }
-//
-//        $url = $_POST['image'];
-//        $image = $data['image'];
-//        file_put_contents('../image/' . $image, file_get_contents($url));
+        $uploadfile = 'img/' . $data['image'];
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+            echo 'file upload';
+        } else {
+            echo 'No';
+        }
+
         try {
             $sql = 'INSERT INTO ' . $this->table . '(name,image,author,price)  VALUES (:name,:image,:author,:price)';
             $stm = $this->connection->prepare($sql);
@@ -59,6 +58,7 @@ class ProductModel extends Model
      */
     public function showAll()
     {
+
         $stm = $this->connection->query($this->sql);
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-8">
+    <div class="col-8 offset-3">
         <h3><?php echo $products['name'] ?></h3>
 
         <img class="  image-responsive"
-             src="<?php echo $products['image'] ?>"
+             src="<?php echo '../img/'.$products['image'] ?>"
              alt="Card image cap">
 
         <h4> Average rating= <?php echo round($products['avg_rating'], 1) ?></h4>

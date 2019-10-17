@@ -22,11 +22,12 @@
     </thead>
     <tbody>
     <tr>
+
         <?php foreach ($products
 
         as $product): ?>
         <td><a href="/show/<?php print $product['id'] ?> "><?php echo $product['name']; ?></a></td>
-        <td><img src="<?php echo $_SERVER['DOCUMENT_ROOT'].'/'.$product['image'] ?>" alt="no image"></td>
+        <td><img src="<?php echo 'img/'.$product['image'] ?>" style="width: 60px ;height: 40px" alt="no image"></td>
         <td><?php echo $product['created_at'] ?></td>
         <td><?php echo $product['author'] ?></td>
         <td><?php echo $product['amount'] ?></td>
